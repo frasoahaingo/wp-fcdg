@@ -19,7 +19,7 @@
 ?>
 
 	<div class="col-xs-12 col-md-6 col-lg-4">
-		<article data-filter-periode="<?php echo $periode_id; ?>" data-filter-theme="<?php echo $theme_id[0 ]; ?>" data-filter-keywords="<?php echo strtolower($firstname . ' ' . strtoupper($lastname)); ?>" class="item">
+		<article data-filter-periode="<?php echo $periode_id; ?>" data-filter-theme="<?php echo $theme_id[0]; ?>" data-filter-keywords="<?php echo strtolower($firstname . ' ' . strtoupper($lastname)); ?>" class="item">
 			<a href="<?php echo get_permalink($postID); ?>">
 				<?php if (has_post_thumbnail()) { ?>
 					<div class="cover">

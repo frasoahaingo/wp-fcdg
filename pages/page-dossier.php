@@ -15,7 +15,7 @@ get_header(); ?>
 	$args = array();
 	if ($post_type == 'biographie') {
 		$args = array(
-			'orderby'	=> 'meta_value',
+			'orderby'	=> 'meta_key',
 			'order'		=> 'ASC',
 			'meta_key'	=> 'lastname'
 		);
@@ -41,7 +41,7 @@ get_header(); ?>
 			// récupérer les thèmes
 			$themes = cdg_get_categories('theme_bio', 'biographie');
 
-	
+			include locate_template('partials/page-dossier/filter-dossier.php');
 		break;
 
 		case 'post':
@@ -52,7 +52,6 @@ get_header(); ?>
 		break;
 	}
 	?>
-
 
 	<!-- DOSSIERS / BIOGRAPHIES -->
 	<section class="cards">
