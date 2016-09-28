@@ -1,0 +1,205 @@
+<section class="cover-page">
+	<div class="container">
+        		<div class="mixology-row">
+            		<div class="content col-xs-12">
+                 		<div class="container">
+                    			<div class="mixology-row">
+                        				<div class="col-xs-12">
+                            				<span class="type"></span>
+                        				</div>
+                    			</div>
+                    			<div class="mixology-row">
+                        				<div class="col-xs-12 col-md-12 col-lg-12">
+                            				<h1>Nous contacter</h1>
+                        				</div>
+                    			</div>
+                    			<div class="mixology-row">
+                        				<div class="col-xs-12 contact-type">
+                            				<p>Selectionner le motif de demande de contact :</p>
+                            				<div class="choices">
+                            					<div class="choice">
+                                						<input name="contact-type" id="contact" type="radio" value="contact-form" checked="checked">
+                                						<label for="contact">
+                                    						<span>Demande de  contact</span>
+                                						</label>
+                            					</div>
+                            					<div class="choice">
+                                						<input name="contact-type" id="contribution" type="radio" value="contribution-form">
+                                						<label for="contribution">
+                                    						<span>Contribuer au site</span>
+                                						</label>
+                            					</div>
+                            					<div class="choice">
+                                						<input name="contact-type" id="newsletter" type="radio" value="newsletter-form">
+                                						<label for="newsletter">
+                                    						<span>S'inscrire à la newsletter</span>
+                                						</label>
+                            					</div>
+                        					</div>
+                        				</div>
+                    			</div>
+                			</div>
+            		</div>
+        		</div>
+    	</div>
+</section>
+
+<section class="contact-forms">
+	<div class="mixology-row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-offset-2 col-lg-8">
+			<!-- add class 'display' on form tag to display it -->
+			<form action="" class="contact-form">
+				<fieldset>
+					<label for="contact-lastname"><sup>*</sup>Nom : </label>
+					<div class="input">
+						<input class="text" id="contact-lastname" name="contact-lastname" type="text" placeholder="De Gaulle ..." value="">
+						<span class="validation"></span>
+					</div>
+				</fieldset>
+				<fieldset>
+					<label for="contact-firstname"><sup>*</sup>Prénom : </label>
+					<div class="input">
+						<input class="text" id="contact-firstname" name="contact-firstname" type="text" placeholder="Charles ..." value="">
+						<span class="validation"></span>
+					</div>
+				</fieldset>
+				<fieldset>
+					<label for="contact-email"><sup>*</sup>Email : </label>
+					<div class="input">
+						<input class="email" id="contact-email" name="contact-email" type="text" placeholder="Charlesdegaulle@gmail.com ..." value="">
+						<span class="validation"></span>
+					</div>
+				</fieldset>
+				<fieldset>
+					<label for="contact-company">Société : </label>
+					<div class="input">
+						<input id="contact-company" name="contact-company" type="text" placeholder="Nom de votre société ..." value="">
+					</div>
+				</fieldset>
+				<fieldset>
+					<label for="contact-function">Fonction : </label>
+					<div class="input">
+						<input id="contact-function" name="contact-function" type="text" placeholder="Intitulé de la fonction ..." value="">
+					</div>
+				</fieldset>
+				<fieldset class="long-field">
+					<label for="contact-message"><sup>*</sup>Votre demande : </label>
+					<textarea class="message" name="contact-message" id="contact-message" cols="30" rows="10" placeholder="Ma demande ..." value=""></textarea>
+					<span class="validation"></span>
+				</fieldset>
+				<span class="required-fields"><sup>*</sup>Champs obligatoires</span>
+				<fieldset>
+					<label class="submit" for="contact-submit">Envoyer <span class="icon-share"></span></label>
+					<input id="contact-submit" type="submit">
+				</fieldset>
+			</form>
+
+			<form action="" class="contribution-form display">
+				<fieldset>
+					<label for="contribution-lastname"><sup>*</sup>Nom : </label>
+					<div class="input">
+						<input class="text" id="contribution-lastname" name="contribution-lastname" type="text" placeholder="De Gaulle ..." value="">
+						<span class="validation"></span>
+					</div>
+				</fieldset>
+				<fieldset>
+					<label for="contribution-firstname"><sup>*</sup>Prénom : </label>
+					<div class="input">
+						<input class="text" id="contribution-firstname" name="contribution-firstname" type="text" placeholder="Charles ..." value="">
+						<span class="validation"></span>
+					</div>
+				</fieldset>
+				<fieldset>
+					<label for="contribution-email"><sup>*</sup>Email : </label>
+					<div class="input">
+						<input class="email" id="contribution-email" name="contribution-email" type="text" placeholder="Charlesdegaulle@gmail.com ..." value="">
+						<span class="validation"></span>
+					</div>
+				</fieldset>
+				<fieldset>
+					<label for="contribution-company">Société : </label>
+					<div class="input">
+						<input id="contribution-company" name="contribution-company" type="text" placeholder="Nom de votre société ..." value="">
+					</div>
+				</fieldset>
+				<fieldset>
+					<label for="contribution-function">Fonction : </label>
+					<div class="input">
+						<input id="contribution-function" name="contribution-function" type="text" placeholder="Intitulé de la fonction ..." value="">
+					</div>
+				</fieldset>
+				<fieldset class="long-field">
+					<label for="contribution-message"><sup>*</sup>Expliquez votre contribution : </label>
+					<textarea class="message" name="contribution-message" id="contribution-message" cols="30" rows="10" placeholder="Ma demande ..." value="" ></textarea>
+					<span class="validation"></span>
+				</fieldset>
+				<fieldset class="long-field">
+					<label><sup>*</sup>Téléchargez une pièce jointe : </label>
+					<ul class="uploaded-files"></ul>
+					<label  class="upload" for="contribution-files">Parcourir <span class="icon-plus"></span></label>
+					<input type="file" id="contribution-files" value="">
+					<!-- <input class="file" type="file" name="contribution-files[]" id="contribution-files" multiple="multiple" value=""> -->
+					<span class="validation"></span>
+				</fieldset>
+				<fieldset>
+					<label>Vous êtes : </label>
+						<div class="choices">
+							<div class="choice">
+                                					<input class="radio" name="contribution-role" id="contribution-role-teacher" type="radio" value="teacher" >
+                                					<label for="contribution-role-teacher">
+                                    					<span>Un enseignant</span>
+                                					</label>
+                            				</div>
+                            				<div class="choice">
+                                					<input class="radio" name="contribution-role" id="contribution-role-student" type="radio" value="student" >
+                                					<label for="contribution-role-student">
+                                    					<span>Un étudiant</span>
+                                					</label>
+                            				</div>
+                            				<div class="choice">
+                                					<input class="radio" name="contribution-role" id="contribution-role-other" type="radio" value="other" >
+                                					<label for="contribution-role-other">
+                                    					<span>Autre</span>
+                                					</label>
+                            				</div>
+						</div>
+						<span class="validation"></span>
+				</fieldset>
+				<span class="required-fields"><sup>*</sup>Champs obligatoires</span>
+				<fieldset>
+					<label class="submit" for="contribution-submit">Envoyer <span class="icon-share"></span></label>
+					<input id="contribution-submit" type="submit">
+				</fieldset>
+			</form>
+
+			<form action="" class="newsletter-form">
+				<fieldset>
+					<label for="newsletter-lastname"><sup>*</sup>Nom : </label>
+					<div class="input">
+						<input class="text" id="newsletter-lastname" name="newsletter-lastname" type="text" placeholder="De Gaulle ..." value="">
+						<span class="validation"></span>
+					</div>
+				</fieldset>
+				<fieldset>
+					<label for="newsletter-firstname"><sup>*</sup>Prénom : </label>
+					<div class="input">
+						<input class="text" id="newsletter-firstname" name="newsletter-firstname" type="text" placeholder="Charles ..." value="">
+						<span class="validation"></span>
+					</div>
+				</fieldset>
+				<fieldset>
+					<label for="newsletter-email"><sup>*</sup>Email : </label>
+					<div class="input">
+						<input class="text" id="newsletter-email" name="newsletter-email" type="text" placeholder="Charlesdegaulle@gmail.com ..." value="">
+						<span class="validation"></span>
+					</div>
+				</fieldset>
+				<span class="required-fields"><sup>*</sup>Champs obligatoires</span>
+				<fieldset>
+					<label class="submit" for="newsletter-submit">Envoyer <span class="icon-share"></span></label>
+					<input id="newsletter-submit" type="submit">
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</section>

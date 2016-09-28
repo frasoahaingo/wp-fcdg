@@ -1,0 +1,211 @@
+article.item {
+        color: $color-owl-text;
+        position: relative;
+        background-color: $background-color-dossier-bio-cards;
+        figure {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            img {
+                position: absolute;
+                left: 50%;
+                top: 0;
+                @include transform(translate(-50%,0));
+                width: auto;
+                min-width: 100%;
+            }
+            figcaption {
+                background-color: $background-color-owl-card;
+                padding: 30px 20px;
+                border: 2px solid $border-color-card;
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+            }
+        }
+        h3 {
+            font-family: "sofia-pro", serif;
+            color: $color-cards-title;
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 0.8em;
+        }
+        p {
+            font-size: 1.1rem;
+            color: $color-cards-text;
+            margin-bottom: 0.8em;
+        }
+        sup {
+            font-size: 0.5em;
+        }
+        .date,
+        .tag {
+            text-transform: uppercase;
+            display: inline-block;
+            vertical-align: middle;
+            color: $color-owl-tags;
+            font-weight: bold;
+            font-size: 0.8rem;
+            margin-right: 5px;
+            span {
+                display: inline-block;
+                vertical-align: middle;
+                &:first-child {
+                    margin-top: 2px;
+                }
+            }
+        }
+    }
+
+    .cards {
+        padding: 3rem 7.5rem;
+        article {
+            background-color: $background-color-dossier-bio-card;
+            // margin-bottom: 10px;
+            width: 100%;
+            height: 460px;
+            overflow: hidden;
+            &:hover .content {
+                border-color: $border-color-dossier-bio-infos;
+            }
+            > a {
+                display: block;
+
+                @include x-flexbox;
+                @include x-flex-direction(column);
+                @include x-align-items(center);
+                @include x-justify-content(space-between);
+                height: 100%;
+
+            }
+        }
+        .cover {
+            // max-height: 215px;
+            // overflow: hidden;
+            // position: relative;
+            background-color: $color-dossier-sommaire-article-image;
+
+            overflow: hidden;
+            width: 100%;
+            @include x-flex(1 1 auto);
+            @include x-flexbox;
+            @include x-align-items(center);
+
+            span {
+                font-size: 5rem;
+                color: $color-dossier-sommaire-article-icon;
+                background-color: $color-dossier-sommaire-article-image;
+                display: block;
+                text-align: center;
+                width: 100%;
+                position: static;
+            }
+
+            img {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                @include transform(translate(-50%, -50%));
+                min-width: 100%;
+                min-height: 100%;
+            }
+        }
+        .col-lg-4 {
+            padding: 0.5em;
+        }
+        .content {
+            padding: 2rem;
+            border: 2px solid $border-color-card;
+            background-color: $background-color-dossier-bio-card;
+            width: 100%;
+            @include x-flex(0 1 auto);
+            h2 {
+                font-size: 1.375rem;
+                color: $color-dossier-bio-name;
+                margin: 0;
+            }
+            p {
+                margin-bottom: 0;
+            }
+            p:empty {
+                display: none;
+            }
+        }
+        .dates {
+            color: $color-dossier-bio-infos;
+            font-size: 0.875rem;
+        }
+        p {
+            color: $color-dossier-bio-infos
+        }
+        .date, .tag {
+            color: $color-dossier-bio-infos;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            span {
+                vertical-align: middle;
+            }
+        }
+    }
+
+    @media screen and (max-width: 960px) {
+        .cards {
+            img,
+            .cover span {
+                position: static;
+                @include transform(none);
+                height: auto;
+                width: 100%;
+            }
+        }
+        article.item {
+            height: auto;
+            min-height: 0;
+            figure {
+                height: auto;
+                img {
+                    position: static;
+                    @include transform(none);
+                }
+                figcaption {
+                    position: static;
+                }
+            }
+            .content {
+                position: static;
+            }
+        }
+    }
+
+    @media screen and (max-width: $mixo-sm-max) {
+    .cards {
+        padding: 3rem;
+        div {
+            padding: 0;
+        }
+    }
+}
+
+@media screen and (max-width: $mixo-xs-max) {
+    .cards {
+        padding: 2rem;
+        div {
+            padding: 0;
+        }
+    }
+    .cards article {
+        height: auto;
+        padding-bottom: 1em;
+        .cover {
+            height: auto;
+            img {
+                position: static;
+                @include transform(none);
+                width: 100%;
+                height: auto;
+                min-height: 0;
+            }
+        }
+    }
+}

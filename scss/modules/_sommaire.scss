@@ -1,0 +1,83 @@
+.sommaire {
+    padding: 5rem 7.5rem;
+    background-color: $background-color-article-sommaire;
+    h2 {
+        color: $color-article-sommaire-title;
+        font-size: 1.5rem;
+        font-weight: normal;
+    }
+    .type {
+        color: $color-article-sommaire-type;
+        font-weight: bold;
+        margin-bottom: 1em;
+    }
+    .reperes h2:before,
+    .exploitation h2:before,
+    .docs h2:before,
+    .temoignages h2:before {
+        font-family: "icomoon";
+        margin-right: 15px;
+    }
+    .reperes {
+        h2:before {
+            content: "\e61e";
+        }
+    }
+    .exploitation {
+        h2:before {
+            content: "\e620";
+        }
+    }
+    .docs {
+        h2:before {
+            content: "\e609";
+            font-size: 2rem;
+        }
+    }
+    .temoignages {
+        h2:before {
+            content: "\e61f";
+        }
+    }
+    li {
+        padding-left: 30px;
+        position: relative;
+        color: $color-article-sommaire-list;
+        margin-bottom: 10px;
+        &:before {
+            content: "\e60d";
+            font-family: "icomoon";
+            position: absolute;
+            left: 0;
+            top: 5px;
+        }
+        a {
+            color: $color-article-sommaire-list;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+        }
+    }
+}
+
+
+@media screen and (max-width: $mixo-sm-max) {
+    .sommaire {
+        padding: 3rem;
+    }
+}
+
+@media screen and (max-width: $mixo-sm-min) {
+    .sommaire .reperes,
+    .sommaire .exploitation,
+    .sommaire .docs,
+    .sommaire .temoignages {
+        padding: 0;
+    }
+}
+
+
+@media screen and (max-width: $mixo-xs-max) {
+    .sommaire {
+        padding: 3em 1em;
+    }
+}

@@ -1,0 +1,105 @@
+.featured {
+    @include x-flexbox;
+    @include x-flex(1 1 auto);
+    position: relative;
+    overflow: hidden;
+    .cover {
+        @include x-flexbox;
+        @include x-flex(1 1 auto);
+        @include x-align-items(center);
+        padding: 0;
+        overflow: hidden;
+        position: relative;
+        > img {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            @include transform(translate(-50%,-50%));
+            min-height: 100%;
+            min-width: 100%;
+        }
+    }
+    .content {
+        position: relative;
+        word-break: break-word;
+        @include x-flexbox;
+        @include x-align-items(center);
+        color: $color-featured;
+        padding: 7.5em;
+        z-index: 2;
+        .type:after {
+            border-color: $color-featured;
+        }
+        .title {
+            font-family: "museo-slab", serif;
+            font-size: 1.8rem;
+            margin: 1rem 0;
+        }
+        .description {
+            margin: 0;
+            word-break: break-word;
+            color: $color-featured-text;
+        }
+        .link {
+            margin: 1rem 0;
+            color: $color-featured;
+            border-color: $color-featured;
+        }
+    }
+}
+
+@media screen and (max-width: $mixo-md-min) {
+    .featured {
+        .content {
+            padding: 5em;
+        }
+    }
+}
+
+@media screen and (max-width: $mixo-sm-min) {
+     .featured {
+        @include x-flex-direction(column);
+        .content {
+            padding: 3em;
+        }
+        > * {
+            width: 100%;
+            max-width: 100%;
+            @include x-order(2);
+        }
+        .cover {
+            @include x-order(1);
+            > img {
+                position: static;
+                @include transform(none);
+                width: 100%;
+                max-width: 100%;
+                height: 100%;
+                min-height: 0;
+            }
+        }
+        .cover,
+        .content {
+            @include x-flex(1 1 auto);
+        }
+        .mixology-row {
+            @include x-flex-direction(column);
+            > * {
+                width: 100%;
+                max-width: 100%;
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $mixo-xs-min) {
+    .featured {
+        .content {
+            padding: 3em 1em;
+            .link {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

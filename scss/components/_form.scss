@@ -1,0 +1,127 @@
+.input-simple
+{
+    position : relative;
+    display : inline-block;
+
+    input[type=text]{
+        font-family: 'sofia-pro';
+        font-weight: bold;
+        padding: 8px 25px 8px 13px;
+
+        background-color: $input-back;
+
+        @include font-size(14);
+
+        &:focus{
+        @include input-placeholder {
+            color : rgba($input-text, 0.3);
+        }
+        }
+        @include input-placeholder {
+            color: $input-text;
+        }
+    }
+
+    &:after{
+        content : "\e61c";
+        font-family: "icomoon";
+        color: $abbey;
+        position : absolute;
+        right : 0;
+        top : 50%;
+        @include transform(translateY(-50%));
+        padding : 5px;
+    }
+}
+
+.select-simple{
+    position : relative;
+    color: $button-text;
+    display: inline-block;
+    select{
+        color: inherit;
+        border: 2px solid $button-border;
+        @include font-size(14);
+        height : 40px;
+        padding: $padding;
+        background : transparent;
+        width: 100%;
+
+        // Hide arrows
+        @include appearance(none);
+        &::-ms-expand {
+            display: none;
+        }
+    }
+    &:after{
+        content: "\e60d";
+        font-family: "icomoon";
+        position : absolute;
+        top : 50%;
+        @include transform(translateY(-50%));
+        right : 0;
+        width : 30px;
+    }
+}
+.choices {
+        display: none;
+        @include x-flex(0 1 auto);
+        margin-top: 30px;
+        padding: 0 5px;
+        margin-right: 2em;
+        .choice {
+            display: block;
+            margin-right: 2em;
+            margin-bottom: 10px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+.choice input {
+    display: none;
+}
+.choice label {
+    color: $button-text;
+    cursor: pointer;
+    span {
+        vertical-align: middle;
+    }
+}
+.choice label:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    width: 12px;
+    height: 12px;
+    margin-right: 10px;
+    border: 2px solid #fff;
+}
+.choice input[type=radio] + label:before {
+    border-radius: 25px;
+}
+.choice input[type=checkbox]:checked + label:before,
+.choice input[type=radio]:checked + label:before {
+    content: "\25a0";
+    color: #fff;
+    font-size: 1em;
+    line-height: 0.6;
+}
+.choice input[type=radio]:checked + label:before{
+    content: "\25cf";
+}
+.validation {
+                    display: none;
+                        font-size: 0.625rem;
+                    color: #cc2b25;
+                        text-align: right;
+                        &:before {
+                            content: "/!\\ ";
+                            display: inline-block;
+                            margin-right: 5px;
+                        }
+                        &.error {
+                            display: block;
+                        }
+                }

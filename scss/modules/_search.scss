@@ -1,0 +1,16 @@
+@media screen and (max-width: $mixo-xs-max) {
+    .dossier-assets.search {
+        form {
+            label {
+                padding-left: 0;
+            }
+            input[type="text"] {
+                width: 60%;
+                font-size: 1rem;
+            }
+            button {
+                float: none;
+            }
+        }  
+    }
+}

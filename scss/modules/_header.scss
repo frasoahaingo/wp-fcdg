@@ -1,0 +1,395 @@
+.home {
+    header {
+        .header {
+            height: 7vh;
+            .container {
+                .mixology-row {
+                    @include x-align-items(center);
+                    padding-top: 0;
+                }
+            }
+            .logo {
+                a {
+                    img {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        @include transform(translate(-50%, -50%));
+                    }
+                }
+            }
+        }
+    }
+}
+header{
+    background-color: $background-header;
+    position: relative;
+    z-index: 100;
+    // width: 100vw;
+    .sup-menu {
+        height: 7vh;
+        ul {
+            height: 100%;
+            width: 100%;
+            @include x-flexbox;
+            @include x-flex(1 1 auto);
+            @include x-flex-direction(row);
+            @include x-align-items(center);
+            @include x-justify-content(center);
+            @include x-flex-wrap(wrap);
+            overflow: hidden;
+            li {
+                text-align: center;
+                height: 100%;
+                @include x-flexbox;
+                @include x-flex(1 1 auto);
+                @include x-align-items(center);
+                // @include x-flex-grow(1);
+                @include x-justify-content(center);
+                @include x-flex-wrap(wrap);
+                &.discover {
+                    background-color: $background-discover;
+                }
+                &.researches {
+                    background-color: $background-researches;
+                }
+                &.informations {
+                    background-color: $background-informations;
+                }
+                &.learn {
+                    background-color: $background-learn;
+                }
+                &.actus {
+                    background-color: $background-actus;
+                }
+                &.disabled {
+                    opacity: 0.4;
+                }
+            }
+        }
+    }
+
+    &.show-menu {
+        /*.menu {
+            display: block;
+        }*/
+        .header {
+            .hamburger span.icon-menu:before {
+                content: "\e607";
+            }
+        }
+        .breadcrumb {
+            display: none;
+        }
+    }
+
+    .header {
+        // padding: 0 30px;
+        height: 9vh;
+        color: $color-text;
+        @include x-flexbox;
+        @include x-flex(1 1 auto);
+        @include x-align-items(center);
+        @include x-flex-direction(column);
+        &.sticky {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: $background-header;
+            width: 100%;
+            z-index: 15;
+            height: 7vh;
+            .container {
+                .mixology-row {
+                    @include x-align-items(center);
+                    padding-top: 0;
+                }
+            }
+            .logo {
+                a {
+                    img {
+                        top: -50%;
+                        left: 50%;
+                        @include transform(translate(-50%, -50%));
+                    }
+                }
+            }
+        }
+        &.sticky + .menu {
+            height: 93vh;
+            top: 7vh
+        }
+        .container {
+            // height: 7vh;
+            text-align: center;
+            @include x-flexbox;
+            .mixology-row {
+                @include x-justify-content(center);
+                @include x-align-items(flex-start);
+                padding-top: 1em;
+               .logo {
+                   @include x-justify-content(center);
+                    h1{
+                        margin: 0;
+                    }
+                }
+                .search {
+                    @include x-justify-content(flex-end);
+                }
+            }
+        }
+        .logo {
+            @include x-align-items(center);
+            a {
+                display: block;
+                margin: 0 auto;
+                position: relative;
+                width: 100%;
+                text-align: center;
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    @include transform(translate(-50%, 0));
+                }
+            }
+        }
+        .hamburger {
+            @include x-align-items(center);
+            @include x-justify-content(flex-start);
+            cursor: pointer;
+            &:focus {
+                outline: none;
+            }
+            span:before {
+                margin-right: 15px;
+            }
+            strong {
+                margin-left: 15px;
+                font-size: 0.75em;
+                font-weight: lighter;
+            }
+        }
+        .tools {
+            @include x-flexbox;
+            @include x-flex(1 1 auto);
+            color: $color-text;
+        }
+    }
+
+    .menu {
+        width: 33vw;
+        height: 93vh;
+        @include x-align-self(flex-start);
+        font-size: 0;
+        display: none;
+        > * {
+            height: 100%;
+            display: inline-block;
+            vertical-align: top;
+            font-size: initial;
+        }
+        .content {
+            background: $background-menu;
+            width: 33vw;
+            height: 93vh;
+            padding: 4em;
+            li {
+                margin: 20px 0;
+                ul {
+                    margin: 0.5em 1em 1em 1em;
+                    li {
+                        padding-left: 1em; 
+                        text-indent: -.7em;
+                        margin: 0;
+                        opacity: 0.4;
+                        &:first-child {
+                            margin-top: 0;
+                        }
+                        &:before {
+                            margin-right: 5px;
+                            color: $color-text;
+                            content: "\25a0";
+                        }
+                        &:hover {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+            h2 {
+                font-size: 1.5em;
+                font-weight: normal;
+            }
+            .btn-simple {
+                margin-bottom: 5px;
+                display: inline-block;
+                float: left;
+                clear: left;
+            }
+            .social-icons {
+                float: left;
+                clear: left;
+                display: none;
+                li:first-child {
+                    margin-left: 0;
+                }
+            }
+            .make-donation {
+                margin-top: 2em;
+                border: 0;
+                background-color: $button-donation-background;
+            }
+            .select-simple {
+                display: none;
+            }
+        }
+    }
+}
+
+.chrono-header {
+	width: 100%;
+	background: none;
+    	// padding: 1em 2em;
+    	@include x-flexbox;
+    	@include x-justify-content(center);
+    	position: fixed;
+	top: 0;
+	left: 0;
+    	.logo {
+    		text-align: center;
+    	}
+    	.social-icons {
+    		text-align: right;
+    	}
+    	.header {
+    		height: 7vh;
+    		.container {
+    			.mixology-row {
+    				padding-top: 0;
+    				@include x-align-items(center);
+    			}
+    		}
+    		.logo {
+    			a {
+    				img {
+    					top: -50%;
+    					@include transform(translate(-50%,-50%));
+    				}
+    			}
+    		}
+    		.hamburger {
+    			display: none;
+    		}
+    	}
+    	&.frise-header {
+    		text-align: center;
+    		.menu {
+    			.content {
+    				.nav-periode {
+    					li {
+    						&:after {
+    							content: "";
+    							display: block;
+    							opacity: 0.2;
+    							width: 4em;
+    							padding-top: 20px;
+    							margin: 0 auto;
+    							height: 2px;
+    							border-bottom: 2px solid $color-text;
+    						}
+    						&:last-child {
+    							margin-bottom: 2em;
+    							&:after {
+    								content: none;
+    							}
+    						}
+    						a {
+    							color: $color-text;
+    							h2 {
+								font-size: 0.75rem;
+								text-transform: uppercase;
+								margin: 0;
+    							}
+    							span {
+								font-size: 1rem;
+								color: #b6babf;
+    							}
+    						}
+    					}
+    				}
+    				.article-link.btn-simple,
+    				nav.social-icons {
+    					float: none;
+    					clear: both;
+    					text-align: center;
+    				}
+    			}
+    		}
+    	}
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        .header {
+            height: 7vh;
+            .container {
+                .mixology-row {
+                    padding-top: 0;
+                    @include x-align-items(center);
+                    @include x-justify-content(flex-start);
+                }
+            }
+            .tools form {
+                width: 100%;
+                max-width: 100%;
+                border: 0;
+                padding: 0;
+                label {
+                    margin: 0;
+                    float: right;
+                }
+            }
+            .hamburger {
+                span:not(.icon-menu) {
+                    display: none;
+                }
+
+                strong {
+                    display: none;
+                }
+            }
+        }
+        .menu {
+            width: 100vw;
+            .social-icons {
+                li {
+                    margin: 20px 5px;
+                }
+            }
+        }
+        .menu .content .select-simple {
+            display: inline-block;
+        }
+        .menu .content .social-icons {
+            display: block;
+        }
+        &.chrono-header {
+    		.header {
+    			.container {
+    				.mixology-row {
+    					@include x-justify-content(flex-end);
+    				}
+    			}
+    			.hamburger {
+    				text-align: right;
+    				display: block;
+    				@include x-justify-content(flex-end);
+    				span:before {
+    					margin: 0;
+    				}
+    			}
+    		}
+    	}
+    }
+}

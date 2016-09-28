@@ -1,0 +1,73 @@
+.search {
+    .cover-page {
+        h1 {
+            margin-bottom: 0;
+        }
+    }
+}
+.page-template-page-lexique {
+    .cover-page {
+        /*.btn-simple {
+            margin: 0 10px;
+            width: 40px;
+            display: block;
+            height: 40px;
+            box-sizing: content-box;
+            text-align: center;
+            line-height: 40px;
+            padding: 0;
+        }*/
+    }
+}
+.cover-page {
+    background-color: $color-dossier-bio-cover;
+    padding: 3rem 7.5rem;
+    .custom-select {
+        display: inline-block;
+        vertical-align: middle;
+        &:after {
+            content: "\e60e";
+        }
+    }
+    .btn-simple {
+        margin: 5px 10px;
+    }
+    .type:after {
+        border-color: $color-dossier-bio-cover-text;
+        margin-left: 0;
+    }
+    h1 {
+        font-size: 3.75rem;
+        font-family: "museo-slab", serif;
+        margin: 2rem 0;
+        color: $color-dossier-bio-cover-text;
+    }
+}
+
+@media screen and (max-width: $mixo-sm-max) {
+    .cover-page {
+        padding: 3rem;
+        div {
+            padding: 0;
+        }
+    }
+}
+
+@media screen and (max-width: $mixo-xs-max) {
+    .cover-page {
+        padding: 2rem;
+        div {
+            padding: 0;
+        }
+        h1 {
+            font-size: 1.875rem;
+        }
+    }
+    .cover-page {
+        .filters {
+            > span {
+                display: block;
+            }
+        }
+    }
+}

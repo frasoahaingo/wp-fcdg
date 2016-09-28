@@ -1,0 +1,167 @@
+footer {
+    background: $black;
+    color: $color-text;
+    padding: 3rem 7.5rem;
+    position: relative;
+    .confirm-newsletter {
+        display: none;
+        position: fixed;
+        background-color: $color-text;
+        border: 2px solid #dae0e6;
+        color: $black;
+        top: 50%;
+        bottom: auto;
+        z-index: 1;
+        left: 50%;
+        padding: 2em;
+        @include transform(translate(-50%, -50%));
+        &.show {
+            display: block;
+        }
+        .address {
+            font-weight: bold;
+        }
+        a.close {
+            position: absolute;
+            display: block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            top: 0;
+            right: 0;
+            color: $black;
+        }
+    }
+    .col-xs-12 img {
+        margin-bottom: 3em;
+        @include x-flex(0 0 auto);
+    }
+    .btn-simple {
+        margin-bottom: 3em;
+    }
+    .container {
+        width: 100%;
+    }
+    h2 {
+        font-size: 1.5em;
+        font-weight: normal;
+        margin: 0 0 0.5em 0;
+    }
+    
+    .access {
+        li {
+                margin: 20px 0;
+                ul {
+                    margin: 0.5em 1em 1em 1em;
+                    li {
+                        padding-left: 1em; 
+                        text-indent: -.7em;
+                        margin: 0;
+                        opacity: 0.4;
+                        &:first-child {
+                            margin-top: 0;
+                        }
+                        &:before {
+                            margin-right: 5px;
+                            color: $color-text;
+                            content: "\25a0";
+                        }
+                        &:hover {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+    }
+    form {
+        input[type="email"] {
+            display: inline-block;
+            padding: 0 10px;
+            height: 40px;
+            width: 60%;
+            border: 0;
+        }
+        input[type="submit"] {
+            display: none;
+        }
+        label {
+            margin-bottom: 10px;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .newsletter-submit {
+            cursor: pointer;
+            padding: 0 10px;
+            height: 40px;
+            width: 40px;
+            margin-bottom: 0;
+            background-color: $color-text;
+            color: $black;
+            border: 0;
+            font-size: 1rem;
+            vertical-align: middle;
+            margin-left: -5px;
+            line-height: 40px;
+        }
+        .validation {
+            text-align: left;
+            margin-top: 10px;
+        }
+    }
+    .follow-us {
+        h2 {
+            margin-top: 1em;
+        }
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            li {
+                display: inline-block;
+                vertical-align: middle;
+                &:first-child {
+                    margin-left: 0;
+                }
+                a {
+                    color: $color-text;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    .scroll-top {
+        position: absolute;
+        display: block;
+        text-align: center;
+        top: -35px;
+        right: 10%;
+        width: 70px;
+        height: 70px;
+        background: $background-button-scrollTop;
+        color: $color-button-scrollTop;
+        border: 1px solid $color-button-scrollTop;
+        line-height: 70px;
+        z-index: 2;
+    }
+}
+
+@media screen and (max-width: $mixo-md-min) {
+    footer {
+        padding: 3em;
+        .mixology-row {
+            @include x-flex-direction(column);
+            .col-xs-2 {
+                width: 100%;
+                max-width: 100%;
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $mixo-xs-max) {
+    footer {
+        padding: 3em 1em;
+    }
+}

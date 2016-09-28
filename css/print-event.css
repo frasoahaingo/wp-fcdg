@@ -1,0 +1,47 @@
+.event-page {
+	-webkit-box-direction: normal;
+    	-webkit-box-orient: vertical;
+    	-webkit-flex-direction: column;
+    	-moz-flex-direction: column;
+    	-ms-flex-direction: column;
+    	flex-direction: column;
+    	height: 100%;
+    	width: 100%;
+    	margin-top: 0;
+    	display: block;
+    	overflow: visible;
+  }
+  .event-page .cover {
+    	margin-top: 0;
+    	display: block;
+    	overflow: visible;
+    	height: initial;
+    	width: 100%;
+    	max-width: 100%;
+  }
+  .event-page .cover img {
+   	 -moz-transform: none;
+    	-ms-transform: none;
+    	-webkit-transform: none;
+    	transform: none;
+    	width: 100%;
+    	max-width: 100%;
+    	min-width: 0;
+    	min-height: 0;
+    	position: static;
+  }
+  .event-page .content {
+	display: block;
+    	width: 100%;
+    	max-width: 100%;
+ }
+ .event-page .content .return-frise,
+ .event-page .content .event-content .link,
+ .event-page .content .event-actions {
+    	display:none;
+ }
+ .event-page .content .event-content {
+   	height: auto;
+    	overflow: visible;
+    	padding: 3em 2em;
+ }

@@ -1,0 +1,249 @@
+.event-page {
+	@include x-flexbox;
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+	background-color: $black;
+
+	position: fixed;
+    	top: 0;
+    	left: 0;
+    	right: 0;
+    	bottom: 0;
+    	z-index: 200;
+
+	.cover {
+		@include opacity(1);
+		@include transition(all 0.5s ease);
+		padding: 0;
+		overflow: hidden;
+		height: 100%;
+		position: relative;
+		img {
+			@include transform(translate(-50%,-50%));
+			min-width: 100%;
+    			max-width: none;
+    			min-height: 100vh;
+    			width: auto;
+    			height: 100%;
+    			margin: auto;
+    			display: block;
+    			max-height: none;
+    			position: absolute;
+    			top: 50%;
+    			left: 50%;
+    			z-index: 2;
+		}
+		.icon-close {
+			display: none;
+			position: absolute;
+    			top: 0;
+    			padding: 1em;
+    			background: $jungle_green;
+    			color: $color-text;
+    			right: 0;
+		}
+		&.isZoomable,
+		&.isVideo {
+			cursor: pointer;
+			background-color: $black;
+			&:after {
+				@include transform(translate(-50%,-50%));
+				content: "\e603";
+				display: block;
+				color: $color-text;
+				font-family: "icomoon";
+				font-size: 3rem;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				z-index: 1;
+			}
+			img {
+				@include opacity(0.15);
+			}
+		}
+		&.isVideo {
+			img {
+				@include opacity(0.45);
+			}
+		}
+		&.isZoomed {
+			@include x-flex-basis(100%);
+			width: 100%;
+			max-width: 100%;
+			img {
+				width: auto;
+				height: auto;
+    				min-width: 0;
+    				min-height: 0;
+    				max-height: 100%;
+    				max-width: 100%;
+			}
+			.icon-close {
+				display: block;
+			}
+		}
+
+		&.isVideo {
+			&:after {
+				@include transform(translate(-50%,-50%));
+				content: ' ';
+				position: absolute;
+				width: 256px;
+				height: 256px;
+				top: 50%;
+				left: 50%;
+				background-image: url(../images/play.png);
+				background-repeat: no-repeat;
+			}
+
+			&.isZoomed {
+				&:after {
+					display: none;
+				}
+
+				img {
+					display: none;
+				}
+			}
+		}
+
+		.video {
+			@include transform(translate(-50%,-50%));
+			position: absolute;
+			display: none;
+			top: 50%;
+			left: 50%;
+			text-align: center;
+
+			&.youtube {
+				width: 45vw;
+			}
+
+			/* iframe {
+				width: 100%;
+			} */
+		}
+	}
+	.content {
+		@include x-flexbox;
+		@include x-flex-direction(column);
+		padding: 0;
+		background-color: $white;
+		.return-frise {
+			height: 7vh;
+			background-color: $jungle_green;
+			width: 100%;
+			line-height: 7vh;
+			text-align: right;
+			padding: 0 1em;
+			span {
+				vertical-align: middle;
+				margin-left: 1em;
+			}
+		}
+		.event-content {
+			@include x-flex(1 1 auto);
+			height: 93vh;
+			overflow: auto;
+			font-family: "sofia-pro", serif;
+			padding: 5em;
+			font-size: 0.875rem;
+			color: $nevada;
+			.type {
+				color: $abbey;
+				font-weight: bold;
+			}
+			.title {
+				color: $abbey;
+				font-size: 1.875rem;
+				font-family: "museo-slab", serif;
+				margin: 1em 0 1em 0;
+			}
+			.event-actions {
+				a {
+					@include x-align-items(center);
+					color: $nevada;
+					text-transform: uppercase;
+					font-weight: bold;
+					span {
+						margin-left: 10px;
+					}
+				}
+			}
+			.details {
+				@include x-flexbox;
+            			@include x-flex(1 1 auto);
+            			@include x-align-items(flex-start);
+				margin: 1em 0 0 0;
+            			span:last-child {
+                				padding-left: 1em;
+                				margin-top: -5px
+            			}
+			}
+			.description {
+				@include x-flex-direction(column);
+				margin-top: 2em;
+				font-size: 1.125rem;
+				p:first-child:first-letter {
+					color: $jungle_green;
+					margin-right: 3px;
+					font-size: 1.875rem;
+					font-family: "museo-slab", serif;
+				}
+			}
+			.link {
+				margin-top: 2em;
+				font-weight: bold;
+				color: $jungle_green;
+				border-color: $jungle_green;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $mixo-md-min) {
+	.event-page {
+		@include x-flex-direction(column);
+    		height: 100%;
+    		overflow: auto;
+    		.cover {
+    			@include x-flex(0 0 auto);
+    			margin-top: 7vh;
+    			overflow: auto;
+    			height: initial;
+			img {
+				@include transform(none);
+				width: 100%;
+				min-width: 0;
+				min-height: 0;
+				position: static;
+			}
+    		}
+    		.content {
+    			@include x-flex(0 0 auto);
+    			.return-frise {
+    				position: fixed;
+    				top: 0;
+    				left: 0;
+    				z-index: 2;
+    			}
+    			.event-content {
+    				height: auto;
+    				overflow: auto;
+    				padding: 3em 2em;
+    			}
+    		}
+    	}
+}
+
+@media screen and (max-width: $mixo-sm-min) {
+	.event-page {
+		.content {
+			.event-content {
+				padding : 3em 1em;
+			}
+		}
+	}
+}

@@ -1,0 +1,77 @@
+.twitter {
+    height: auto;
+    background-color: $background-twitter;
+    .content {
+        color: $color-text;
+        padding: 4.5em 7.5em;
+        .type:after {
+            border-color: $color-article-link-light;
+        }
+    }
+     article {
+        color: $color-text;
+        line-height: 1.1rem;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        @include x-flex(1 1 auto);
+        a {
+            font-weight: bold;
+        }
+    }
+    .tweet-user {
+        > * {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        img {
+            margin-right: 5px;
+            width: 40px;
+            height: 40px;
+            @include x-flex-grow(0);
+        }
+        .tweet-username {
+            span {
+                font-size: 0.9rem;
+            }
+        }
+        p {
+            margin: 0;
+        }
+    }
+    .tweet-date {
+        span {
+            span:first-child {
+                padding-top: 2px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+            span:last-child {
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $mixo-md-min) {
+    .twitter {
+        .content {
+            padding: 5em;
+        }
+    }
+}
+
+@media screen and (max-width: $mixo-sm-min) {
+    .twitter {
+        .content {
+            padding: 3em;
+        }
+    }
+}
+
+@media screen and (max-width: $mixo-xs-min) {
+    .twitter {
+        .content {
+            padding: 3em 1em;
+        }
+    }
+}

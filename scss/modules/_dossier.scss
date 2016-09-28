@@ -1,0 +1,135 @@
+.dossier {
+    .cover {
+        height: 400px;
+        position: relative;
+        overflow: hidden;
+        border-bottom: 3px solid $color-border-dossier-cover;
+        padding: 0;
+        img {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            @include transform(translate(-50%,-50%));
+            min-height: 100%;
+            min-width: 100%;
+            width: 100%;
+        }
+    }
+    .content {
+        padding: 3rem 5rem;
+    }
+    .type {
+        color: $color-dossier-type;
+        &:after{
+            margin-left: 0;
+        }
+    }
+    h1 {
+        font-size: 3rem;
+        font-family: "museo-slab";
+        color: $color-dossier-title;
+        margin-top: 1rem;
+        margin-bottom: 0;
+    }
+    sup {
+        font-size: 0.5em;
+    }
+    .infos {
+        @include x-align-items(center);
+    }
+    .date, .tag {
+        margin-right: 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: $color-dossier-tag;
+        font-size: 0.875rem;
+        span:first-child {
+            display: inline-block;
+            margin-top: -2px;
+        }
+    }
+    .icon-mark,
+    .icon-date {
+        vertical-align: middle;
+    }
+    .share-article {
+        position: static;
+        margin: 0.5em 0 1em 0;
+        a {
+            color: $color-dossier-share;
+            border-color: $color-dossier-share;
+            margin-right: 0px;
+        }
+    }
+    .resume {
+        overflow: hidden;
+        p:first-child {
+            margin-top: 0;
+            &:first-letter {
+                font-size: 1.875rem;
+                color: $color-dossier-share;
+                font-family: "museo-slab", serif;
+            }
+        }
+        a {
+            color: $color-dossier-link;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        blockquote {
+            color: #590034;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            font-size: 1.5rem;
+            
+            p {
+                padding-left: 3.3rem;
+                
+                &:before {
+                    content: "\e605";
+                    font-size: 2rem;
+                    font-family: "icomoon";
+                    position: absolute;
+                    top: -20px;
+                    left: 0;
+                }
+            }
+        }
+    }
+    .link {
+        color: $color-dossier-link;
+        border-color: $color-dossier-link;
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: $mixo-sm-max) {
+    .dossier {
+        .content {
+            padding: 3rem;
+        }
+    }
+}
+
+@media screen and (max-width: $mixo-xs-min) {
+    .dossier {
+        .cover {
+            height: auto;
+            img {
+                position: static;
+                @include transform(none);
+                width: 100%;
+                height: 100%;
+                min-height: 0;
+            }
+        }
+        .content {
+            padding: 3em 1em;
+        }
+        h1 {
+            font-size: 1.875rem;
+        }
+    }
+}

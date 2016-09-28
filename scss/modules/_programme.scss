@@ -1,0 +1,100 @@
+.page-template-page-lexique {
+    .programme {
+        .content {
+            h2:before {
+                content: "";
+            }
+        }
+    }
+}
+.page-template-default {
+    .programme {
+        .content {
+            p:first-child {
+                &:first-letter {
+                    color: $color-first-letter-article;
+                    font-size: 1.875rem;
+                    font-family: "museo-slab", serif;
+                }
+            }
+        }
+    }
+}
+.programme {
+    padding: 3rem 10rem;
+    h2 {
+        margin-top: 0;
+        margin-bottom: 0.5em;
+        color: $color-programme-title;
+        font-size: 1.875rem;
+        font-family: "museo-slab", serif;
+        position: relative;
+        &:before {
+            content: "\e601";
+            position: absolute;
+            font-family: "icomoon";
+            left: -40px;
+            top: 0;
+        }
+    }
+    p {
+        color: $color-programme-text;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    h2 + p:first-letter {
+        color: $color-first-letter-article;
+        font-size: 1.875rem;
+        font-family: "museo-slab", serif;
+    }
+    &.grey {
+        background-color: $background-color-programme-grey;
+    }
+    .content {
+        @include x-flex-direction(column);
+        margin-bottom: 2em;
+    }
+    .container:last-child {
+        .content {
+            margin-bottom: 0;
+        }
+    }
+    a {
+        color: $color-programme-title;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+#premiere h2:before,
+#terminale h2:before {
+    content: "\e602";
+    left: -60px;
+}
+
+#series-es-l h2:before,
+#series-s h2:before {
+    content: "\e600";
+}
+
+@media screen and (max-width: $mixo-md-min) {
+    .programme {
+        padding: 3rem;
+        h2:before {
+            position: static;
+            margin-right: 10px;
+        }
+    }
+}
+
+@media screen and (max-width: $mixo-xs-max) {
+    .programme {
+        padding: 3em 1em;
+        h2 {
+            font-size: 1.50rem;
+            margin-bottom: 1rem;
+        }
+    }
+}

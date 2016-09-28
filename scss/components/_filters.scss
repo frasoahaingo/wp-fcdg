@@ -1,0 +1,30 @@
+    .filters {
+        @include x-align-items(center);
+        width: 100%;
+        color: $color-dossier-bio-cover-text;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        padding: 0 5px;
+        .filter-btn {
+            span:last-child {
+                display: inline-block;
+                @include transition(all 0.3s ease);
+            }
+            &.open {
+                span:last-child {
+                    @include transform(rotate(180deg));
+                }
+            }
+        }
+    }
+
+@media screen and (max-width: $mixo-xs-max) {
+    .filters {
+        @include x-flex-direction(column);
+        @include x-align-items(flex-start);
+        .filter-btn.btn-simple,
+        .anchor.btn-simple {
+            margin: 10px 5px;
+        }
+    }
+}

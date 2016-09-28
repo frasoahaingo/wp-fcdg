@@ -1,0 +1,46 @@
+.quote {
+    .mixology-row {
+        padding: 0;
+    }
+    .col-lg-3 {
+        background-color: $background-color-article-quote-icon;
+        color: $color-article-quote;
+        @include x-justify-content(flex-end);
+        @include x-align-items(center);
+        padding: 4em;
+        span {
+            font-size: 7rem;
+        }
+    }
+    .col-lg-9 {
+        background-color: $color-article-quote;
+        color: $color-text;
+        padding: 4em 5em 4em 4em;
+    }
+    blockquote {
+        margin: 0;
+        @include x-flexbox;
+        @include x-flex-direction(column);
+        p {
+            &:first-child {
+                margin-top: 0;
+            }
+            &:last-child {
+                margin-bottom: 0;
+            }
+        } 
+    }
+}
+
+@media screen and (max-width: $mixo-sm-min) {
+    .quote blockquote {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: $mixo-xs-min) {
+    .quote .col-lg-9 {
+        padding: 3em 1.5em;
+    }
+}

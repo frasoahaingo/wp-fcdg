@@ -1,0 +1,26 @@
+.confirm-form {
+	@include x-flexbox;
+	@include x-flex-direction(column);
+	@include x-align-items(center);
+	@include x-justify-content(center);
+	height: 84vh;
+	background-color: #f0f4f7;
+	figure {
+		background-color: #dae0e5;
+    		height: 120px;
+    		width: 120px;
+    		line-height: 120px;
+    		border-radius: 90px;
+    		text-align: center;
+    		font-size: 2.5rem;
+    		margin: 0;
+	}
+	p {
+		color: #494b4d;
+		font-size: 1.5rem;
+	}
+	a {
+		border-color: #590034;
+		color: #590034;
+	}
+}

@@ -1,0 +1,19 @@
+/* Function to convert px to rem */
+@function calculate-rem($size) {
+    @return ($size / 16) + rem;
+}
+
+@mixin font-size($size) {
+    //font-size: $size + px; //Fallback in px
+    font-size: calculate-rem($size);
+}
+
+// Center text vertically ( https://css-tricks.com/centering-in-the-unknown/ )
+@mixin ghostVerticalAlign(){
+  &:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%; width: .1px;
+  }
+}

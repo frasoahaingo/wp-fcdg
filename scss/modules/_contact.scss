@@ -1,0 +1,248 @@
+.contact {
+	.contact-type {
+		@include x-flex-direction(column);
+		p {
+			display: inline-block;
+			margin: 0;
+			color: $color-text;
+			text-transform: uppercase;
+			font-size: 0.875rem;
+		}
+		.choices {
+			// @include x-flexbox;
+			display: inline-block;
+			margin: 1em 0 0 0;
+			.choice {
+				margin-bottom: 0;
+				display: inline-block;
+			}
+		}
+	}
+	.contact-forms {
+		padding: 3rem 7.5rem;
+		background-color: #f0f4f7;
+		form {
+			display: none;
+			width: 100%;
+			fieldset {
+				font-size: 0;
+				border: 0;
+				margin-bottom: 0.5rem;
+				clear: both;
+				&:last-child {
+					margin-bottom: 0;
+				}
+				label {
+					font-size: 1.5rem;
+					cursor: pointer;
+					color: #494b4d;
+					width: 17.5%;
+					display: inline-block;
+					vertical-align: top;
+					sup {
+						font-size: 1rem;
+					}			
+				}
+				.input {
+					display: inline-block;
+					vertical-align: middle;
+					width: 82.5%;
+					input[type="text"] {
+						color: #494b4d;
+						width: 100%;
+						padding: 0 1em;
+						display: block;
+						height: 40px;
+						background-color: #fff;
+						border: 2px solid #dae0e6;
+					}
+				}
+				.choices {
+					display: block;
+					margin: 0.5rem 0 1rem 0;
+					padding-left: 0;
+					.choice {
+						display: inline-block;
+						margin: 0 2rem 0 0;
+						label {
+							span {
+								vertical-align: top;
+							}
+						}
+					}
+					label {
+						width: auto;
+						font-size: 1rem;
+						&:before {
+							border-color: #494b4d;
+							color: #494b4d;
+							margin-right: 5px;
+							font-size: 0.8em;
+    							line-height: 0.7;
+    							text-align: center;
+						}
+						span {
+							color: #494b4d;
+							font-size: 1.125rem;
+						}
+					}
+				}
+				textarea {
+					color: #494b4d;
+					width: 100%;
+					display: block;
+					background-color: #fff;
+					border: 2px solid #dae0e6;
+					height: 175px;
+					padding: 1em;
+					margin: 0.5em 0 0 0;
+				}
+				.submit {
+					background-color: #590034;
+					float: right;
+					font-size: 0.875rem;
+					color: #fff;
+					// padding: 1rem;
+					width: 124px;
+					height: 40px;
+					text-align: center;
+					line-height: 40px;
+					text-transform: uppercase;
+					span {
+						margin-left: 10px;
+					}
+					& + input {
+						display: none;
+					}
+				}
+				.input-file {
+					display: inline-block
+				}
+				.hidden {
+					display: none;
+				}
+				.upload {
+					text-transform: uppercase;
+					color: #590034;
+					font-size: 0.875rem;
+					border: 2px solid #590034;
+					height: 40px;
+					line-height: 36px;
+					padding: 0;
+					float: right;
+					text-align: center;
+				}
+				.uploaded-files {
+					display: inline-block;
+					font-size: 0.875rem;
+					width: 81%;
+					margin: 0.5em 0 1em 0;
+					& + .upload {
+						width: 17%;
+						margin: 0.5em 0 1em 0;
+					}
+					&:empty + .upload {
+						float: left;
+					} 
+					li {
+						width: 100%;
+						padding: 0 1em;
+						display: block;
+						height: 40px;
+						line-height: 36px;
+						background-color: #fff;
+						border: 2px solid #dae0e6;
+						margin-bottom: 0.5rem;
+						color: #494b4d;
+						text-transform: uppercase;
+						a {
+							display: inline-block;
+    							float: right;
+    							font-size: 0.875rem;
+    							color: #494b4d;
+    							vertical-align: middle;
+    							span {
+    								vertical-align: middle;
+    							}
+						}
+					}
+				}
+				&.long-field {
+					margin-top: 1rem;
+					label {
+						width: 100%;
+					}
+					ul + label {
+						width: auto;
+					}
+					input[type="file"] {
+						display: none;
+					}
+				}
+			}
+			.required-fields {
+				font-size: 0.875rem;
+				color: #494b4d;
+			}
+			&.display {
+				display: block;
+			}
+		}
+	}
+}
+
+
+@media screen and (max-width: 1045px) {
+	.contact {
+		.contact-forms {
+			padding:  3rem 2rem;
+	    	}
+	}
+}
+
+@media screen and (max-width: $mixo-md-min) {
+	.contact {
+		.contact-forms {
+			// padding: 3rem;
+	    	}
+	}
+}
+
+@media screen and (max-width: $mixo-sm-max) {
+	.contact {
+		.contact-forms {
+			padding: 3rem 2rem;
+			form {
+				fieldset {
+					label,
+					.input {
+						width: 100%;
+					}
+					.uploaded-files {
+						width: 100%;
+						margin-bottom: 0;
+						& + .upload {
+							width: auto;
+							padding: 0 1rem;
+							float: none;
+							margin-top: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $mixo-xs-max) {
+	.contact {
+		.contact-type {
+			.choices {
+				@include x-flex-direction(column);
+			}
+		}
+		.contact-forms {
+			padding: 3rem 1rem;
+		}
+	}
+}
