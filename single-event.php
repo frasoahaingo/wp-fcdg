@@ -23,11 +23,12 @@ get_header('event'); ?>
 		$code_video = get_field('code_video', $event_id);
 		?>
 		<section class="event-page">
-			<div class="cover col-xs-12 col-sm-12 col-md-6 col-lg-6 isVideo">
+			<div class="cover col-xs-12 col-sm-12 col-md-6 col-lg-6 <?php if($code_video) : ?> isVideo <?php endif; ?>">
 				<img src="<?php echo $image['url']; ?>" alt="">
 
 				<?php if($code_video) : ?>
 					<div class="video">
+	
 						<?php echo $code_video; ?>
 					</div>
 				<?php endif; ?>

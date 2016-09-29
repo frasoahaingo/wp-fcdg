@@ -280,7 +280,7 @@ $(document).ready(function(e) {
 	});
 
 	$(document).on('mouseover', '.event-page .cover img', function(){
-		if (!$(this).parent().hasClass('isZoomed')) {
+		if (windowWidth >= 970 && !$(this).parent().hasClass('isZoomed')) {
 			$(this).parent().addClass('isZoomable');
 		}
 	});
@@ -294,14 +294,13 @@ $(document).ready(function(e) {
 
 	// console.log(windowWidth);
 	$(document).on('click', '.cover.isZoomable img', function(){
-		if (windowWidth >= 970) {
+		
 			$(this).parent().removeClass('isZoomable').addClass('isZoomed');
-		} else {
-			var urlImg = $(this).attr('src');
-			window.open(urlImg, '_blank');
-		}
-
+	});
+	$(document).on('click', '.cover.isVideo img', function(){
+			$(this).parent().addClass('isZoomed');
 		var $video = $(this).next('.video');
+
 
 		if ($video.length) {
 			$video.css('display', 'block');
