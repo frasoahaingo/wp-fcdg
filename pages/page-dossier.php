@@ -15,9 +15,9 @@ get_header(); ?>
 	$args = array();
 	if ($post_type == 'biographie') {
 		$args = array(
-			'orderby'	=> 'meta_key',
+			'orderby'	=> 'meta_key_num',
 			'order'		=> 'ASC',
-			'meta_key'	=> 'lastname'
+			'meta_key'	=> 'date_historique'
 		);
 	}
 	$articles = cdg_get_posts($post_type, $args);
