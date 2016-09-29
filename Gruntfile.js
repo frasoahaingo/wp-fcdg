@@ -33,7 +33,13 @@ module.exports = function (grunt) {
                 stripBanners: true
             },
             libs: {
-                src: ['bower_components/jquery/dist/jquery.min.js', 'bower_components/owl.carousel/dist/owl.carousel.min.js', 'bower_components/jquery.pep/src/jquery.pep.js','bower_components/jquery-mousewheel/jquery.mousewheel.min.js'],
+                src: [
+                    'bower_components/lodash/dist/lodash.min.js',
+                    'bower_components/jquery/dist/jquery.min.js',
+                    'bower_components/owl.carousel/dist/owl.carousel.min.js',
+                    'bower_components/jquery.pep/src/jquery.pep.js',
+                    'bower_components/jquery-mousewheel/jquery.mousewheel.min.js'
+                ],
                 dest: 'js/dist/libs.js'
             },
             user: {

@@ -4,21 +4,30 @@
         $('.cards').find('article').each(function(){
             var article = $(this);
 
+            // par défault on cache
+            article.parent().hide();
+
+            // on affiche si on a aucun filtre
+            if(periode.length == 0 && theme.length == 0 && category.length == 0 && keyword.length == 0) {
+                article.parent().show();
+                return;
+            }
+
             var p = article.attr('data-filter-periode'),
                 t = article.attr('data-filter-theme'),
                 c = article.attr('data-filter-category'),
                 k = article.attr('data-filter-keywords');
 
-            if (c) {
-                if (category.indexOf(c) != -1 || category.length <= 0) {
-                     article.parent().show();
-                } else article.parent().hide();
+            if (c && _.intersection(category, c.split(',')).length > 0) {
+                article.parent().show();
             }
 
-            if(p || t) {
-                if ((periode.indexOf(p) != -1) || (theme.indexOf(t) != -1) || ((periode.length <= 0) && (theme.length <= 0))) {
-                    article.parent().show();
-                } else article.parent().hide();
+            if (p && _.intersection(periode, p.split(',')).length > 0) {
+                article.parent().show();
+            }
+
+            if (t && _.intersection(theme, t.split(',')).length > 0) {
+                article.parent().show();
             }
 
             if(keyword.length && k) {
