@@ -8,18 +8,18 @@ get_header(); ?>
 	<?php while ( have_posts() ) : the_post(); ?>
 
 	<?php
+
 	// type d'article à afficher
 	$post_type = get_field('show_post_type', get_the_ID());
 
 	// récupérer les articles
-	$args = array();
-	if ($post_type == 'biographie') {
-		$args = array(
-			'orderby'	=> 'meta_key_num',
-			'order'		=> 'ASC',
-			'meta_key'	=> 'date_historique'
-		);
-	}
+	
+	$args = array(
+		'orderby'	=> 'meta_value_num',
+		'order'		=> 'ASC',
+		'meta_key'	=> 'date_historique'
+	);
+	
 	$articles = cdg_get_posts($post_type, $args);
 	?>
 

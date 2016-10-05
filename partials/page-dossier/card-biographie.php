@@ -5,10 +5,15 @@
 	$periode_id = get_field('periode_choice_bio', $postID);
 	$periode = get_term_by('id', $periode_id, 'periode_bio');
 
-	// thème
-	$theme_id = get_field('theme_choice_bio', $postID);
-	$theme = get_term_by('id', $theme_id[0], 'theme_bio');
-
+	 $theme_ids = get_field('theme_choice_bio', $postID);
+    $themes = array();
+    foreach ($theme_ids as $theme_id) {
+        $theme = get_term_by('id', $theme_id, 'theme_bio');
+        
+        if($theme) {
+            $themes[] = $theme->name;
+        }
+    }
 	// nom, prénom
 	$lastname = get_field('lastname', $postID);
 	$firstname = get_field('firstname', $postID);
@@ -19,7 +24,7 @@
 ?>
 
 	<div class="col-xs-12 col-md-6 col-lg-4">
-		<article data-filter-periode="<?php echo $periode_id; ?>" data-filter-theme="<?php echo $theme_id[0]; ?>" data-filter-keywords="<?php echo strtolower($firstname . ' ' . strtoupper($lastname)); ?>" class="item">
+		<article data-filter-periode="<?php echo $periode_id; ?>" data-filter-theme="<?php echo implode(",", $theme_ids); ?>" data-filter-keywords="<?php echo strtolower($firstname . ' ' . strtoupper($lastname)); ?>" class="item">
 			<a href="<?php echo get_permalink($postID); ?>">
 				<?php if (has_post_thumbnail()) { ?>
 					<div class="cover">
@@ -38,12 +43,12 @@
 					</span>
 					<?php } ?>
 
-					<?php if ($theme) { ?>
-					<span class="tag">
-						<span class="icon-mark"></span>
-						<span><?php echo $theme->name; ?></span>
-					</span>
-					<?php } ?>
+					 <?php if (count($themes) > 0) { ?>
+                        <span class="tag">
+                            <span class="icon-mark"></span>
+                            <span><?php echo implode(', ', $themes); ?></span>
+                        </span>
+                    <?php } ?>
 				</div>
 			</a>
 		</article>
