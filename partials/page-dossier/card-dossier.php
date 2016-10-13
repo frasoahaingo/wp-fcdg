@@ -4,7 +4,7 @@
     // période
     $periode_id = get_field('periode_choice', $postID);
     $periode = get_term_by('id', $periode_id, 'periode');
-
+    $date_historique = get_field('date_historique', $postID);
     // thème
     $theme_id = get_field('theme_choice', $postID);
     $themes = array();
@@ -25,7 +25,7 @@
 ?>
 
     <div class="col-xs-12 col-md-6 col-lg-4">
-        <article data-filter-periode="<?php echo $periode_id; ?>" data-filter-theme="<?php echo implode(', ', $theme_ids); ?>" data-filter-keywords="<?php echo strtolower(utf8_decode(get_the_title())); ?>" class="item">
+        <article data-date-historique="<?php echo $date_historique; ?>" data-filter-periode="<?php echo $periode_id; ?>" data-filter-theme="<?php echo implode(', ', $theme_ids); ?>" data-filter-keywords="<?php echo strtolower(utf8_decode(get_the_title())); ?>" class="item">
             <a href="<?php echo get_permalink($postID); ?>">
                 <div class="cover">
                     <?php if ($thumbnail) { ?>

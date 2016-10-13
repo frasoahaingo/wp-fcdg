@@ -26,6 +26,10 @@
 									<span>Catégorie</span>
 									<span class="icon-flechesmall"></span>
 								</a>
+								<a href="#" class="btn-simple filter-date-historique filter-btn">
+									<span>Trier par</span>
+									<span class="icon-flechesmall"></span>
+								</a>
 								<input type="text" name="keyword" class="btn-simple filter-keyword" placeholder="Mots clés" />
 							</div>
 
@@ -45,6 +49,24 @@
 									}
 								}
 								?>
+							</div>
+							<!-- DATE HISTORIQUE -->
+							<div class="choices order-date-historique">
+								<div class="choice">
+									<input name="order" id="date-asc" type="radio" value="asc">
+									<label for="date-asc">
+										<span>Ascendant</span>
+									</label>
+								</div>
+								<div class="choice">
+									<input name="order" id="date-desc" type="radio" value="desc">
+									<label for="date-desc">
+										<span>Descendant</span>
+									</label>
+								</div>
+									
+								
+								
 							</div>
 						</div>
 					</div>

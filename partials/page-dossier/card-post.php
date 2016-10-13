@@ -4,7 +4,7 @@
 	// category
 	$category = get_the_category();
 	$category = $category[0];
-
+    $date_historique = get_field('date_historique', $postID);
 	// url externe ?
 	$url = get_field('external_link', $postID);
 	$target = 'target="_blank"';
@@ -16,7 +16,7 @@
 ?>
 
 	<div class="col-xs-12 col-md-6 col-lg-4">
-        <article data-filter-category="<?php echo $category->term_id; ?>" data-filter-keywords="<?php echo strtolower(htmlentities(get_the_title())); ?>" class="item">
+        <article data-date-historique="<?php echo $date_historique; ?>" data-filter-category="<?php echo $category->term_id; ?>" data-filter-keywords="<?php echo strtolower(htmlentities(get_the_title())); ?>" class="item">
             <a href="<?php echo $url; ?>" <?php echo $target; ?>>
             	<div class="cover">
 					<?php if (has_post_thumbnail()) { ?>

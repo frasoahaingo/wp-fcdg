@@ -49,7 +49,15 @@ $(document).ready(function(e){
     if (periode || theme ) {
         filterCard (periode, theme);
     }
-
+    $(document.body).on('click', '.filter-date-historique', function(e) {
+        e.preventDefault();
+        $this = $(this);
+        $('.filter-btn').removeClass('open');
+        $('.choices').slideUp( 300, function(){
+            $this.toggleClass('open');
+            $('.choices.order-date-historique').slideToggle();
+        });
+    });
     $(document.body).on('click', '.filter-periode', function(e) {
         e.preventDefault();
         $this = $(this);
