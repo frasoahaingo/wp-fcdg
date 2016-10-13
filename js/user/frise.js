@@ -38,13 +38,16 @@ $(document).ready(function(e) {
 	// RIBBON YEAR
 	if ($('.frise').length) {
 		var arrayEventsYear = [];
+
 		$('.event[data-year]').each(function(){
 			var year = $(this).data('year');
 			arrayEventsYear.push(year);
 		});
+
 		arrayEventsYear = arrayEventsYear.filter( function( item, index, inputArray ) {
-	           		return inputArray.indexOf(item) == index;
-	    	});
+	        return inputArray.indexOf(item) == index;
+	    });
+
 		for (var i = 0; i <= arrayEventsYear.length ; i++) {
 			$('.event[data-year="'+arrayEventsYear[i]+'"]').eq(0).prepend('<span class="yearLimit ribbon"><strong>'+arrayEventsYear[i]+'</strong></span>');
 		};
@@ -280,7 +283,7 @@ $(document).ready(function(e) {
 	});
 
 	$(document).on('mouseover', '.event-page .cover img', function(){
-		if (windowWidth >= 970 && !$(this).parent().hasClass('isZoomed')) {
+		if (!$(this).parent().hasClass('isZoomed')) {
 			$(this).parent().addClass('isZoomable');
 		}
 	});
@@ -294,13 +297,14 @@ $(document).ready(function(e) {
 
 	// console.log(windowWidth);
 	$(document).on('click', '.cover.isZoomable img', function(){
-		
+		if (windowWidth >= 970) {
 			$(this).parent().removeClass('isZoomable').addClass('isZoomed');
-	});
-	$(document).on('click', '.cover.isVideo img', function(){
-			$(this).parent().addClass('isZoomed');
-		var $video = $(this).next('.video');
+		} else {
+			var urlImg = $(this).attr('src');
+			window.open(urlImg, '_blank');
+		}
 
+		var $video = $(this).next('.video');
 
 		if ($video.length) {
 			$video.css('display', 'block');

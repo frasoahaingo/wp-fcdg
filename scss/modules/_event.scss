@@ -47,6 +47,7 @@
 		&.isVideo {
 			cursor: pointer;
 			background-color: $black;
+
 			&:after {
 				@include transform(translate(-50%,-50%));
 				content: "\e603";
@@ -59,19 +60,23 @@
 				left: 50%;
 				z-index: 1;
 			}
+
 			img {
 				@include opacity(0.15);
 			}
 		}
+
 		&.isVideo {
 			img {
 				@include opacity(0.45);
 			}
 		}
+
 		&.isZoomed {
 			@include x-flex-basis(100%);
 			width: 100%;
 			max-width: 100%;
+
 			img {
 				width: auto;
 				height: auto;

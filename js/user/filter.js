@@ -1,45 +1,38 @@
-    $(document).ready(function(e){
+$(document).ready(function(e){
 
     function filterCard (periode, theme, category, keyword) {
-        $('.cards').find('article').each(function(){
-            var article = $(this);
+        var articles = $('.cards').find('article');
 
-            // par défault on cache
-            article.parent().hide();
+        if (periode.length || theme.length || category.length || keyword.length){
+            articles.parent().hide();
+        } else {
+            articles.parent().show();
+        }
 
-            // on affiche si on a aucun filtre
-            if(periode.length == 0 && theme.length == 0 && category.length == 0 && keyword.length == 0) {
-                article.parent().show();
-                return;
-            }
+        if(periode.length){
+            $.each(periode, function(i, val){
+                $('[data-filter-periode*="'+val+'"]').parent().show();
+            });
+        }
 
-            var p = article.attr('data-filter-periode'),
-                t = article.attr('data-filter-theme'),
-                c = article.attr('data-filter-category'),
-                k = article.attr('data-filter-keywords');
+        if(theme.length){
+            $.each(theme, function(i, val){
+                $('[data-filter-theme*="'+val+'"]').parent().show();
+            });
+        }
 
-            if (c && _.intersection(category, c.split(',')).length > 0) {
-                article.parent().show();
-            }
+        if(category.length){
+            $.each(category, function(i, val){
+                $('[data-filter-category*="'+val+'"]').parent().show();
+            });
+        }
 
-            if (p && _.intersection(periode, p.split(',')).length > 0) {
-                article.parent().show();
-            }
 
-            if (t && _.intersection(theme, t.split(',')).length > 0) {
-                article.parent().show();
-            }
-
-            if(keyword.length && k) {
-                for(kwd in keyword) {
-                    var regexp = new RegExp(keyword[kwd], 'i');
-
-                    if (k.match(regexp)) {
-                        article.parent().show();
-                    } else article.parent().hide();
-                }
-            }
-        });
+        if(keyword.length){
+            $.each(keyword, function(i, val){
+                $('[data-filter-keywords*="'+val+'"]').parent().show();
+            });
+        }
     }
 
     function getParameterByName(name) {
@@ -123,6 +116,39 @@
 
         if(keyword.length == 1 && keyword[0] == '') {
             keyword.shift();
+        }
+
+        filterCard(periode, theme, category, keyword);
+    });
+
+    $(window).load(function(){
+        var periode = new Array(),
+            theme = new Array(),
+            category = new Array(),
+            keyword = new Array(),
+            periodes = $('.choices.periodes input:checked'),
+            themes = $('.choices.themes input:checked'),
+            categories = $('.choices.categories input:checked'),
+            keywords = $('.filter-keyword').val();
+
+        periodes.each(function(){
+            periode.push($(this).val());
+        });
+
+        themes.each(function(){
+            theme.push($(this).val());
+        });
+
+        categories.each(function(){
+            category.push($(this).val());
+        });
+
+        if($('.filter-keyword').length){
+            keyword = keywords.toLowerCase().split(' ');
+
+            if(keyword.length == 1 && keyword[0] == '') {
+                keyword.shift();
+            }
         }
 
         filterCard(periode, theme, category, keyword);

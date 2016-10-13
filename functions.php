@@ -107,121 +107,6 @@
 		}
 		add_filter('excerpt_length', 'cdg_excerpt_length', 999);
 	}
-	/**
-	 * Register custom taxonomy
-	 */
-	if (!function_exists('cdg_register_custom_taxonomy')) {
-		function cdg_register_custom_taxonomy() {
-			// -- TAXO PERIODE [DOSSIER]
-			$labels = array(
-				'name'              => _x( 'Périodes', 'taxonomy general name' ),
-				'singular_name'     => _x( 'Période', 'taxonomy singular name' ),
-				'menu_name'         => __( 'Périodes' ),
-				'all_items'         => __( 'Toutes les périodes' ),
-				'edit_item'         => __( 'Modifier une période' ),
-				'add_new_item'      => __( 'Ajoute une nouvelle période' ),
-				'search_items'      => __( 'Rechercher une période' ),			
-			);
-
-			$args = array(
-				'labels'            => $labels,
-				'public'			=> false,
-				'show_ui'           => true,
-				//'show_in_nav_menus' => true,
-				'show_in_quick_edit' => true,
-				'meta_box_cb'  		=> true,	// n'affiche pas la box pour sélectionner une période dans l'édition d'un dossier
-				'show_admin_column' => true,
-				'hierarchical'      => true,			
-				'query_var'         => true,
-				// 'rewrite'           => array( 'slug' => 'periode-dossier' ),
-			);
-
-			register_taxonomy( 'periode', array( 'dossier' ), $args );
-			
-			// -- TAXO THEME [DOSSIER]
-			$labels = array(
-				'name'              => _x( 'Thèmes', 'taxonomy general name' ),
-				'singular_name'     => _x( 'Thème', 'taxonomy singular name' ),
-				'menu_name'         => __( 'Thèmes' ),
-				'all_items'         => __( 'Tous les thèmes' ),
-				'edit_item'         => __( 'Modifier un thème' ),
-				'add_new_item'      => __( 'Ajoute un nouveau thème' ),
-				'search_items'      => __( 'Rechercher un thème' ),			
-			);
-
-			$args = array(
-				'labels'            => $labels,
-				'public'			=> false,
-				'show_ui'           => true,
-				//'show_in_nav_menus' => true,
-				'show_in_quick_edit' => true,
-				'meta_box_cb'  		=> true,	// n'affiche pas la box pour sélectionner une période dans l'édition d'un dossier
-				'show_admin_column' => true,
-				'hierarchical'      => true,			
-				'query_var'         => true,
-				// 'rewrite'           => array( 'slug' => 'theme' ),
-			);
-
-			register_taxonomy( 'theme', array( 'dossier' ), $args );
-			
-			// -- TAXO PERIODE [BIOGRAPHIE]
-			$labels = array(
-				'name'              => _x( 'Périodes', 'taxonomy general name' ),
-				'singular_name'     => _x( 'Période', 'taxonomy singular name' ),
-				'menu_name'         => __( 'Périodes' ),
-				'all_items'         => __( 'Toutes les périodes' ),
-				'edit_item'         => __( 'Modifier une période' ),
-				'add_new_item'      => __( 'Ajoute une nouvelle période' ),
-				'search_items'      => __( 'Rechercher une période' ),			
-			);
-
-			$args = array(
-				'labels'            => $labels,
-				'public'			=> false,
-				'show_ui'           => true,
-				//'show_in_nav_menus' => true,
-				'show_in_quick_edit' => true,
-				'meta_box_cb'  		=> true,	// n'affiche pas la box pour sélectionner une période dans l'édition d'un dossier
-				'show_admin_column' => true,
-				'hierarchical'      => true,			
-				'query_var'         => true,
-				// 'rewrite'           => array( 'slug' => 'periode' ),
-			);
-
-			register_taxonomy( 'periode_bio', array( 'biographie' ), $args );
-			
-			// -- TAXO THEME [BIOGRAPHIE]
-			$labels = array(
-				'name'              => _x( 'Thèmes', 'taxonomy general name' ),
-				'singular_name'     => _x( 'Thème', 'taxonomy singular name' ),
-				'menu_name'         => __( 'Thèmes' ),
-				'all_items'         => __( 'Tous les thèmes' ),
-				'edit_item'         => __( 'Modifier un thème' ),
-				'add_new_item'      => __( 'Ajoute un nouveau thème' ),
-				'search_items'      => __( 'Rechercher un thème' ),			
-			);
-
-			$args = array(
-				'labels'            => $labels,
-				'public'			=> false,
-				'show_ui'           => true,
-				// 'show_in_nav_menus' => true,
-				'show_in_quick_edit' => true,
-				'meta_box_cb'  		=> true,	// n'affiche pas la box pour sélectionner une période dans l'édition d'un dossier
-				'show_admin_column' => true,
-				'hierarchical'      => true,			
-				'query_var'         => true,
-				// 'rewrite'           => array( 'slug' => 'theme' ),
-			);
-
-			register_taxonomy( 'theme_bio', array( 'biographie' ), $args );
-			
-			// -- TAXO ALPHABET [LEXIQUE]
-			register_taxonomy('alphabet', array('lexique_item'), array('show_ui' => false, 'public' => false));
-			
-		}
-		add_action('init', 'cdg_register_custom_taxonomy' , 0);
-	}
 	
 	/**
 	 * Register custom post type
@@ -293,7 +178,7 @@
 				'has_archive'        => true,
 				'hierarchical'       => false,
 				'menu_position'      => null,
-				'taxonomies'		 => array('category' , 'periode_bio' , 'theme_bio'), 
+				'taxonomies'		 => array('category'), 
 				'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' )
 			);
 
@@ -408,10 +293,124 @@
 			
 			flush_rewrite_rules(false);
 		}
-		add_action('init', 'cdg_register_custom_post_type' , 1); 
+		add_action('init', 'cdg_register_custom_post_type'); 
 	}
 	
-	
+	/**
+	 * Register custom taxonomy
+	 */
+	if (!function_exists('cdg_register_custom_taxonomy')) {
+		function cdg_register_custom_taxonomy() {
+			// -- TAXO PERIODE [DOSSIER]
+			$labels = array(
+				'name'              => _x( 'Périodes', 'taxonomy general name' ),
+				'singular_name'     => _x( 'Période', 'taxonomy singular name' ),
+				'menu_name'         => __( 'Périodes' ),
+				'all_items'         => __( 'Toutes les périodes' ),
+				'edit_item'         => __( 'Modifier une période' ),
+				'add_new_item'      => __( 'Ajoute une nouvelle période' ),
+				'search_items'      => __( 'Rechercher une période' ),			
+			);
+
+			$args = array(
+				'labels'            => $labels,
+				'public'			=> false,
+				'show_ui'           => true,
+				// 'show_in_nav_menus' => true,
+				'show_in_quick_edit' => true,
+				'meta_box_cb'  		=> false,	// n'affiche pas la box pour sélectionner une période dans l'édition d'un dossier
+				'show_admin_column' => true,
+				'hierarchical'      => true,			
+				'query_var'         => true,
+				// 'rewrite'           => array( 'slug' => 'periode-dossier' ),
+			);
+
+			register_taxonomy( 'periode', array( 'dossier' ), $args );
+			
+			// -- TAXO THEME [DOSSIER]
+			$labels = array(
+				'name'              => _x( 'Thèmes', 'taxonomy general name' ),
+				'singular_name'     => _x( 'Thème', 'taxonomy singular name' ),
+				'menu_name'         => __( 'Thèmes' ),
+				'all_items'         => __( 'Tous les thèmes' ),
+				'edit_item'         => __( 'Modifier un thème' ),
+				'add_new_item'      => __( 'Ajoute un nouveau thème' ),
+				'search_items'      => __( 'Rechercher un thème' ),			
+			);
+
+			$args = array(
+				'labels'            => $labels,
+				'public'			=> false,
+				'show_ui'           => true,
+				// 'show_in_nav_menus' => true,
+				'show_in_quick_edit' => true,
+				'meta_box_cb'  		=> false,	// n'affiche pas la box pour sélectionner une période dans l'édition d'un dossier
+				'show_admin_column' => true,
+				'hierarchical'      => true,			
+				'query_var'         => true,
+				// 'rewrite'           => array( 'slug' => 'theme' ),
+			);
+
+			register_taxonomy( 'theme', array( 'dossier' ), $args );
+			
+			// -- TAXO PERIODE [BIOGRAPHIE]
+			$labels = array(
+				'name'              => _x( 'Périodes', 'taxonomy general name' ),
+				'singular_name'     => _x( 'Période', 'taxonomy singular name' ),
+				'menu_name'         => __( 'Périodes' ),
+				'all_items'         => __( 'Toutes les périodes' ),
+				'edit_item'         => __( 'Modifier une période' ),
+				'add_new_item'      => __( 'Ajoute une nouvelle période' ),
+				'search_items'      => __( 'Rechercher une période' ),			
+			);
+
+			$args = array(
+				'labels'            => $labels,
+				'public'			=> false,
+				'show_ui'           => true,
+				// 'show_in_nav_menus' => true,
+				'show_in_quick_edit' => true,
+				'meta_box_cb'  		=> false,	// n'affiche pas la box pour sélectionner une période dans l'édition d'un dossier
+				'show_admin_column' => true,
+				'hierarchical'      => true,			
+				'query_var'         => true,
+				// 'rewrite'           => array( 'slug' => 'periode' ),
+			);
+
+			register_taxonomy( 'periode_bio', array( 'biographie' ), $args );
+			
+			// -- TAXO THEME [BIOGRAPHIE]
+			$labels = array(
+				'name'              => _x( 'Thèmes', 'taxonomy general name' ),
+				'singular_name'     => _x( 'Thème', 'taxonomy singular name' ),
+				'menu_name'         => __( 'Thèmes' ),
+				'all_items'         => __( 'Tous les thèmes' ),
+				'edit_item'         => __( 'Modifier un thème' ),
+				'add_new_item'      => __( 'Ajoute un nouveau thème' ),
+				'search_items'      => __( 'Rechercher un thème' ),			
+			);
+
+			$args = array(
+				'labels'            => $labels,
+				'public'			=> false,
+				'show_ui'           => true,
+				// 'show_in_nav_menus' => true,
+				'show_in_quick_edit' => true,
+				'meta_box_cb'  		=> false,	// n'affiche pas la box pour sélectionner une période dans l'édition d'un dossier
+				'show_admin_column' => true,
+				'hierarchical'      => true,			
+				'query_var'         => true,
+				// 'rewrite'           => array( 'slug' => 'theme' ),
+			);
+
+			register_taxonomy( 'theme_bio', array( 'biographie' ), $args );
+			
+			// -- TAXO ALPHABET [LEXIQUE]
+			register_taxonomy('alphabet', array('lexique_item'), array('show_ui' => false, 'public' => false));
+			
+		}
+		add_action('init', 'cdg_register_custom_taxonomy');
+	}
 	
 	
 	/**

@@ -2314,35 +2314,35 @@ form.search-form .mixology-row > div:nth-child(2) {
   background-color: #FFF;
   font-size: 0.875rem;
 }
-/* line 61, ../../../../../../../../../usr/local/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+/* line 61, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
 .input-simple input[type=text]:focus:-moz-placeholder {
   color: rgba(109, 112, 115, 0.3);
 }
-/* line 64, ../../../../../../../../../usr/local/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+/* line 64, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
 .input-simple input[type=text]:focus::-moz-placeholder {
   color: rgba(109, 112, 115, 0.3);
 }
-/* line 67, ../../../../../../../../../usr/local/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+/* line 67, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
 .input-simple input[type=text]:focus:-ms-input-placeholder {
   color: rgba(109, 112, 115, 0.3);
 }
-/* line 56, ../../../../../../../../../usr/local/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+/* line 56, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
 .input-simple input[type=text]:focus::-webkit-input-placeholder {
   color: rgba(109, 112, 115, 0.3);
 }
-/* line 61, ../../../../../../../../../usr/local/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+/* line 61, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
 .input-simple input[type=text]:-moz-placeholder {
   color: #6D7073;
 }
-/* line 64, ../../../../../../../../../usr/local/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+/* line 64, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
 .input-simple input[type=text]::-moz-placeholder {
   color: #6D7073;
 }
-/* line 67, ../../../../../../../../../usr/local/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+/* line 67, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
 .input-simple input[type=text]:-ms-input-placeholder {
   color: #6D7073;
 }
-/* line 56, ../../../../../../../../../usr/local/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+/* line 56, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
 .input-simple input[type=text]::-webkit-input-placeholder {
   color: #6D7073;
 }
@@ -2431,56 +2431,64 @@ form.search-form .mixology-row > div:nth-child(2) {
   color: #FFF;
   cursor: pointer;
 }
-/* line 87, ../scss/components/_form.scss */
-.choice label span {
-  vertical-align: middle;
-}
 
 /* line 91, ../scss/components/_form.scss */
-.choice label:before {
+.choice label {
+  position: relative;
+  padding-left: 30px;
+}
+/* line 95, ../scss/components/_form.scss */
+.choice label::before {
   content: "";
-  display: inline-block;
-  vertical-align: middle;
-  text-align: center;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
   width: 12px;
   height: 12px;
-  margin-right: 10px;
-  border: 2px solid #fff;
+  border: 2px solid #FFF;
+  transform: translateY(-50%);
+}
+/* line 107, ../scss/components/_form.scss */
+.choice label::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  width: 8px;
+  height: 8px;
+  background-color: #FFF;
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity 300ms ease;
 }
 
-/* line 101, ../scss/components/_form.scss */
-.choice input[type=radio] + label:before {
-  border-radius: 25px;
+/* line 125, ../scss/components/_form.scss */
+.choice input[type=radio] + label::before, .choice input[type=radio] + label::after {
+  border-radius: 100%;
 }
 
-/* line 104, ../scss/components/_form.scss */
-.choice input[type=checkbox]:checked + label:before,
-.choice input[type=radio]:checked + label:before {
-  content: "\25a0";
-  color: #fff;
-  font-size: 1em;
-  line-height: 0.6;
+/* line 134, ../scss/components/_form.scss */
+.choice input[type=checkbox]:checked + label::after,
+.choice input[type=radio]:checked + label::after {
+  opacity: 1;
 }
 
-/* line 111, ../scss/components/_form.scss */
-.choice input[type=radio]:checked + label:before {
-  content: "\25cf";
-}
-
-/* line 114, ../scss/components/_form.scss */
+/* line 139, ../scss/components/_form.scss */
 .validation {
   display: none;
   font-size: 0.625rem;
   color: #cc2b25;
   text-align: right;
 }
-/* line 119, ../scss/components/_form.scss */
+/* line 145, ../scss/components/_form.scss */
 .validation:before {
   content: "/!\\ ";
   display: inline-block;
   margin-right: 5px;
 }
-/* line 124, ../scss/components/_form.scss */
+/* line 150, ../scss/components/_form.scss */
 .validation.error {
   display: block;
 }
@@ -6089,7 +6097,7 @@ footer .scroll-top {
   cursor: pointer;
   background-color: #000;
 }
-/* line 50, ../scss/modules/_event.scss */
+/* line 51, ../scss/modules/_event.scss */
 .event-page .cover.isZoomable:after, .event-page .cover.isVideo:after {
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -6105,17 +6113,17 @@ footer .scroll-top {
   left: 50%;
   z-index: 1;
 }
-/* line 62, ../scss/modules/_event.scss */
+/* line 64, ../scss/modules/_event.scss */
 .event-page .cover.isZoomable img, .event-page .cover.isVideo img {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=15);
   opacity: 0.15;
 }
-/* line 67, ../scss/modules/_event.scss */
+/* line 70, ../scss/modules/_event.scss */
 .event-page .cover.isVideo img {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=45);
   opacity: 0.45;
 }
-/* line 71, ../scss/modules/_event.scss */
+/* line 75, ../scss/modules/_event.scss */
 .event-page .cover.isZoomed {
   -webkit-flex-basis: 100%;
   -moz-flex-basis: 100%;
@@ -6124,7 +6132,7 @@ footer .scroll-top {
   width: 100%;
   max-width: 100%;
 }
-/* line 75, ../scss/modules/_event.scss */
+/* line 80, ../scss/modules/_event.scss */
 .event-page .cover.isZoomed img {
   width: auto;
   height: auto;
@@ -6133,11 +6141,11 @@ footer .scroll-top {
   max-height: 100%;
   max-width: 100%;
 }
-/* line 83, ../scss/modules/_event.scss */
+/* line 88, ../scss/modules/_event.scss */
 .event-page .cover.isZoomed .icon-close {
   display: block;
 }
-/* line 89, ../scss/modules/_event.scss */
+/* line 94, ../scss/modules/_event.scss */
 .event-page .cover.isVideo:after {
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -6152,15 +6160,15 @@ footer .scroll-top {
   background-image: url(../images/play.png);
   background-repeat: no-repeat;
 }
-/* line 102, ../scss/modules/_event.scss */
+/* line 107, ../scss/modules/_event.scss */
 .event-page .cover.isVideo.isZoomed:after {
   display: none;
 }
-/* line 106, ../scss/modules/_event.scss */
+/* line 111, ../scss/modules/_event.scss */
 .event-page .cover.isVideo.isZoomed img {
   display: none;
 }
-/* line 112, ../scss/modules/_event.scss */
+/* line 117, ../scss/modules/_event.scss */
 .event-page .cover .video {
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -6175,11 +6183,11 @@ footer .scroll-top {
   	width: 100%;
   } */
 }
-/* line 120, ../scss/modules/_event.scss */
+/* line 125, ../scss/modules/_event.scss */
 .event-page .cover .video.youtube {
   width: 45vw;
 }
-/* line 129, ../scss/modules/_event.scss */
+/* line 134, ../scss/modules/_event.scss */
 .event-page .content {
   display: -webkit-box;
   display: -moz-box;
@@ -6196,7 +6204,7 @@ footer .scroll-top {
   padding: 0;
   background-color: #FFF;
 }
-/* line 134, ../scss/modules/_event.scss */
+/* line 139, ../scss/modules/_event.scss */
 .event-page .content .return-frise {
   height: 7vh;
   background-color: #32B67A;
@@ -6205,12 +6213,12 @@ footer .scroll-top {
   text-align: right;
   padding: 0 1em;
 }
-/* line 141, ../scss/modules/_event.scss */
+/* line 146, ../scss/modules/_event.scss */
 .event-page .content .return-frise span {
   vertical-align: middle;
   margin-left: 1em;
 }
-/* line 146, ../scss/modules/_event.scss */
+/* line 151, ../scss/modules/_event.scss */
 .event-page .content .event-content {
   -webkit-box-flex: 1;
   -webkit-flex: 1 1 auto;
@@ -6225,19 +6233,19 @@ footer .scroll-top {
   font-size: 0.875rem;
   color: #6D7073;
 }
-/* line 154, ../scss/modules/_event.scss */
+/* line 159, ../scss/modules/_event.scss */
 .event-page .content .event-content .type {
   color: #494B4D;
   font-weight: bold;
 }
-/* line 158, ../scss/modules/_event.scss */
+/* line 163, ../scss/modules/_event.scss */
 .event-page .content .event-content .title {
   color: #494B4D;
   font-size: 1.875rem;
   font-family: "museo-slab", serif;
   margin: 1em 0 1em 0;
 }
-/* line 165, ../scss/modules/_event.scss */
+/* line 170, ../scss/modules/_event.scss */
 .event-page .content .event-content .event-actions a {
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -6248,11 +6256,11 @@ footer .scroll-top {
   text-transform: uppercase;
   font-weight: bold;
 }
-/* line 170, ../scss/modules/_event.scss */
+/* line 175, ../scss/modules/_event.scss */
 .event-page .content .event-content .event-actions a span {
   margin-left: 10px;
 }
-/* line 175, ../scss/modules/_event.scss */
+/* line 180, ../scss/modules/_event.scss */
 .event-page .content .event-content .details {
   display: -webkit-box;
   display: -moz-box;
@@ -6273,12 +6281,12 @@ footer .scroll-top {
   align-items: flex-start;
   margin: 1em 0 0 0;
 }
-/* line 180, ../scss/modules/_event.scss */
+/* line 185, ../scss/modules/_event.scss */
 .event-page .content .event-content .details span:last-child {
   padding-left: 1em;
   margin-top: -5px;
 }
-/* line 185, ../scss/modules/_event.scss */
+/* line 190, ../scss/modules/_event.scss */
 .event-page .content .event-content .description {
   -webkit-box-direction: normal;
   -webkit-box-orient: vertical;
@@ -6289,14 +6297,14 @@ footer .scroll-top {
   margin-top: 2em;
   font-size: 1.125rem;
 }
-/* line 189, ../scss/modules/_event.scss */
+/* line 194, ../scss/modules/_event.scss */
 .event-page .content .event-content .description p:first-child:first-letter {
   color: #32B67A;
   margin-right: 3px;
   font-size: 1.875rem;
   font-family: "museo-slab", serif;
 }
-/* line 196, ../scss/modules/_event.scss */
+/* line 201, ../scss/modules/_event.scss */
 .event-page .content .event-content .link {
   margin-top: 2em;
   font-weight: bold;
@@ -6305,7 +6313,7 @@ footer .scroll-top {
 }
 
 @media screen and (max-width: 970px) {
-  /* line 207, ../scss/modules/_event.scss */
+  /* line 212, ../scss/modules/_event.scss */
   .event-page {
     -webkit-box-direction: normal;
     -webkit-box-orient: vertical;
@@ -6316,7 +6324,7 @@ footer .scroll-top {
     height: 100%;
     overflow: auto;
   }
-  /* line 211, ../scss/modules/_event.scss */
+  /* line 216, ../scss/modules/_event.scss */
   .event-page .cover {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 auto;
@@ -6328,7 +6336,7 @@ footer .scroll-top {
     overflow: auto;
     height: initial;
   }
-  /* line 216, ../scss/modules/_event.scss */
+  /* line 221, ../scss/modules/_event.scss */
   .event-page .cover img {
     -moz-transform: none;
     -ms-transform: none;
@@ -6339,7 +6347,7 @@ footer .scroll-top {
     min-height: 0;
     position: static;
   }
-  /* line 224, ../scss/modules/_event.scss */
+  /* line 229, ../scss/modules/_event.scss */
   .event-page .content {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 auto;
@@ -6348,14 +6356,14 @@ footer .scroll-top {
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
   }
-  /* line 226, ../scss/modules/_event.scss */
+  /* line 231, ../scss/modules/_event.scss */
   .event-page .content .return-frise {
     position: fixed;
     top: 0;
     left: 0;
     z-index: 2;
   }
-  /* line 232, ../scss/modules/_event.scss */
+  /* line 237, ../scss/modules/_event.scss */
   .event-page .content .event-content {
     height: auto;
     overflow: auto;
@@ -6363,7 +6371,7 @@ footer .scroll-top {
   }
 }
 @media screen and (max-width: 730px) {
-  /* line 244, ../scss/modules/_event.scss */
+  /* line 249, ../scss/modules/_event.scss */
   .event-page .content .event-content {
     padding: 3em 1em;
   }

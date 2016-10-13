@@ -13,15 +13,6 @@
 		$target = "";
 	}
 
-    // Picto content type
-    $content_type = get_field('content_type', $postID);
-
-    if ($content_type == 'none') {
-        $content_type = '';
-    } else {
-        $picto = strtolower($content_type);
-    }
-
 ?>
 
 	<div class="col-xs-12 col-md-6 col-lg-4">
@@ -36,12 +27,7 @@
 				</div>
 
                 <div class="content">
-                    <h2>
-                        <?php if($content_type) : ?>
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icons/<?php echo $picto; ?>.png" alt="<?php echo $content_type; ?>" height="27" />
-                        <?php endif; ?>
-                        <?php the_title(); ?>
-                    </h2>
+                    <h2><?php the_title(); ?></h2>
                     <p><?php the_excerpt(); ?></p>
                 </div>
             </a>

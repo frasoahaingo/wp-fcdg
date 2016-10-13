@@ -84,44 +84,70 @@
 .choice label {
     color: $button-text;
     cursor: pointer;
-    span {
-        vertical-align: middle;
+    // span {
+    //     vertical-align: middle;
+    // }
+}
+.choice label {
+    position: relative;
+    padding-left: 30px;
+
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 12px;
+        height: 12px;
+        border: 2px solid $white;
+        transform: translateY(-50%);
+    }
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 4px;
+        width: 8px;
+        height: 8px;
+        background-color: $white;
+        opacity: 0;
+        transform: translateY(-50%);
+        transition: opacity 300ms ease;
     }
 }
-.choice label:before {
-    content: "";
-    display: inline-block;
-    vertical-align: middle;
-    text-align: center;
-    width: 12px;
-    height: 12px;
-    margin-right: 10px;
-    border: 2px solid #fff;
+
+
+.choice input[type=radio] {
+    & + label {
+        &::before,
+        &::after {
+            border-radius: 100%;
+        }
+    }
 }
-.choice input[type=radio] + label:before {
-    border-radius: 25px;
+
+.choice input[type=checkbox]:checked,
+.choice input[type=radio]:checked {
+    & + label::after {
+        opacity: 1;
+    }
 }
-.choice input[type=checkbox]:checked + label:before,
-.choice input[type=radio]:checked + label:before {
-    content: "\25a0";
-    color: #fff;
-    font-size: 1em;
-    line-height: 0.6;
-}
-.choice input[type=radio]:checked + label:before{
-    content: "\25cf";
-}
+
 .validation {
-                    display: none;
-                        font-size: 0.625rem;
-                    color: #cc2b25;
-                        text-align: right;
-                        &:before {
-                            content: "/!\\ ";
-                            display: inline-block;
-                            margin-right: 5px;
-                        }
-                        &.error {
-                            display: block;
-                        }
-                }
+    display: none;
+    font-size: 0.625rem;
+    color: #cc2b25;
+    text-align: right;
+
+    &:before {
+        content: "/!\\ ";
+        display: inline-block;
+        margin-right: 5px;
+    }
+    &.error {
+        display: block;
+    }
+}

@@ -18,7 +18,6 @@
     "jquery": "~2.1.4",
     "owl.carousel": "https://github.com/smashingboxes/OwlCarousel2.git#e5aa7762f8cc1650ce05e2eaa3d118b0ee867bee",
     "jquery-mousewheel": "~3.1.13",
-    "jquery.pep": "~0.6.7",
-    "lodash": "^4.16.2"
+    "jquery.pep": "~0.6.7"
   }
 }
